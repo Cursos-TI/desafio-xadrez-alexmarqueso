@@ -2,14 +2,13 @@
 
 int main() {
     // Desafio: Movimentando as Peças do xadrez
-    // Nível: Novato
+    // Nível: Novato (código base) e Aventureiro (Cavalo)
     // Este programa simula o movimento de três peças de xadrez: Torre, Bispo e Rainha,
-    // utilizando diferentes estruturas de repetição em C.
+    // utilizando diferentes estruturas de repetição em C, e agora adiciona o Cavalo
+    // com loops aninhados (for e while).
 
     // Simulação do movimento da Torre
     printf("--- Movimento da Torre ---\n");
-    // A Torre move-se em linha reta horizontalmente ou verticalmente.
-    // Simulação do movimento da Torre cinco casas para a direita usando a estrutura for.
     printf("Movimento 5 casas para a direita:\n");
     for (int i = 0; i < 5; i++) {
         printf("Direita\n");
@@ -18,9 +17,6 @@ int main() {
 
     // Simulação do movimento do Bispo
     printf("--- Movimento do Bispo ---\n");
-    // O Bispo move-se na diagonal.
-    // Simulação do movimento do Bispo cinco casas na diagonal para cima e à direita
-    // usando a estrutura while.
     printf("Movimento 5 casas na diagonal (Cima, Direita):\n");
     int movimentos_bispo = 0;
     while (movimentos_bispo < 5) {
@@ -31,8 +27,6 @@ int main() {
 
     // Simulação do movimento da Rainha
     printf("--- Movimento da Rainha ---\n");
-    // A Rainha move-se em todas as direções.
-    // Simulação do movimento da Rainha oito casas para a esquerda usando a estrutura do-while.
     printf("Movimento 8 casas para a esquerda:\n");
     int movimentos_rainha = 0;
     do {
@@ -41,5 +35,24 @@ int main() {
     } while (movimentos_rainha < 8);
     printf("\n");
 
+    // Simulação do movimento do Cavalo com loops aninhados (for e while) - ESTRUTURA ANINHADA (menos intuitiva)
+    printf("--- Movimento do Cavalo (Estrutura Aninhada) ---\n");
+    printf("Movimento em 'L' (2 casas para baixo, 1 casa para a esquerda) com loops aninhados:\n");
+
+    // Loop externo (for) - pode controlar "etapas" genéricas
+    for (int i = 0; i < 3; i++) {
+        int contador_interno = 0;
+        // Loop interno (while) - controla a ação para a "etapa" atual
+        while (contador_interno < 1) {
+            if (i < 2) {
+                printf("Baixo\n");
+            } else {
+                printf("Esquerda\n");
+            }
+            contador_interno++;
+        }
+    }
+    printf("\n");
+    
     return 0;
 }
