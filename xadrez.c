@@ -1,58 +1,71 @@
 #include <stdio.h>
 
+// Função recursiva para simular o movimento da Torre (n casas para a direita)
+void moverTorreRecursivo(int n) {
+    if (n > 0) {
+        printf("Direita\n");
+        moverTorreRecursivo(n - 1);
+    }
+}
+
+// Função recursiva para simular o movimento do Bispo (n casas na diagonal para cima e à direita)
+void moverBispoRecursivo(int n) {
+    if (n > 0) {
+        printf("Cima, Direita\n");
+        moverBispoRecursivo(n - 1);
+    }
+}
+
+// Função recursiva para simular o movimento da Rainha (n casas para a esquerda)
+void moverRainhaRecursivo(int n) {
+    if (n > 0) {
+        printf("Esquerda\n");
+        moverRainhaRecursivo(n - 1);
+    }
+}
+
 int main() {
     // Desafio: Movimentando as Peças do xadrez
-    // Nível: Novato (código base) e Aventureiro (Cavalo)
-    // Este programa simula o movimento de três peças de xadrez: Torre, Bispo e Rainha,
-    // utilizando diferentes estruturas de repetição em C, e agora adiciona o Cavalo
-    // com loops aninhados (for e while).
+    // Nível: Mestre (código base), Aventureiro (Cavalo), Mestre (Recursividade e Loops Complexos)
+    // Este programa simula o movimento de peças de xadrez utilizando recursividade e loops complexos.
 
-    // Simulação do movimento da Torre
-    printf("--- Movimento da Torre ---\n");
-    printf("Movimento 5 casas para a direita:\n");
-    for (int i = 0; i < 5; i++) {
-        printf("Direita\n");
-    }
+    // Simulação do movimento da Torre (recursão)
+    printf("--- Movimento da Torre (Recursivo) ---\n");
+    moverTorreRecursivo(5);
     printf("\n");
 
-    // Simulação do movimento do Bispo
-    printf("--- Movimento do Bispo ---\n");
-    printf("Movimento 5 casas na diagonal (Cima, Direita):\n");
-    int movimentos_bispo = 0;
-    while (movimentos_bispo < 5) {
-        printf("Cima, Direita\n");
-        movimentos_bispo++;
-    }
-    printf("\n");
-
-    // Simulação do movimento da Rainha
-    printf("--- Movimento da Rainha ---\n");
-    printf("Movimento 8 casas para a esquerda:\n");
-    int movimentos_rainha = 0;
-    do {
-        printf("Esquerda\n");
-        movimentos_rainha++;
-    } while (movimentos_rainha < 8);
-    printf("\n");
-
-    // Simulação do movimento do Cavalo com loops aninhados (for e while) - ESTRUTURA ANINHADA (menos intuitiva)
-    printf("--- Movimento do Cavalo (Estrutura Aninhada) ---\n");
-    printf("Movimento em 'L' (2 casas para baixo, 1 casa para a esquerda) com loops aninhados:\n");
-
-    // Loop externo (for) - pode controlar "etapas" genéricas
-    for (int i = 0; i < 3; i++) {
-        int contador_interno = 0;
-        // Loop interno (while) - controla a ação para a "etapa" atual
-        while (contador_interno < 1) {
-            if (i < 2) {
-                printf("Baixo\n");
-            } else {
-                printf("Esquerda\n");
-            }
-            contador_interno++;
+    // Simulação do movimento do Bispo (recursão e loops aninhados)
+    printf("--- Movimento do Bispo (Recursivo e Loops Aninhados) ---\n");
+    // Loop externo para movimento vertical (simulando a diagonal)
+    for (int vertical = 0; vertical < 5; vertical++) {
+        // Loop interno para movimento horizontal (simulando a diagonal)
+        for (int horizontal = 0; horizontal < 1; horizontal++) {
+            printf("Cima, Direita\n");
         }
     }
     printf("\n");
-    
+
+    // Simulação do movimento da Rainha (recursão)
+    printf("--- Movimento da Rainha (Recursivo) ---\n");
+    moverRainhaRecursivo(8);
+    printf("\n");
+
+    // Simulação do movimento do Cavalo (loops aninhados complexos)
+    printf("--- Movimento do Cavalo (Loops Aninhados Complexos) ---\n");
+    printf("Movimento em 'L' (2 casas para cima, 1 casa para a direita):\n");
+
+    // Loop externo para controlar as "tentativas" de movimento
+    for (int tentativa = 0; tentativa < 1; tentativa++) {
+        // Loop interno para simular as duas casas para cima
+        for (int cima = 0; cima < 2; cima++) {
+            printf("Cima\n");
+        }
+        // Loop interno para simular uma casa para a direita
+        for (int direita = 0; direita < 1; direita++) {
+            printf("Direita\n");
+        }
+    }
+    printf("\n");
+
     return 0;
 }
